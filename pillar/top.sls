@@ -5,4 +5,5 @@ base:
   'ecom-1':
     - gitlab.gitlab
   'vm-01':
-    - java.java
+    - elasticsearch.elasticsearch
+    - nginx.nginx

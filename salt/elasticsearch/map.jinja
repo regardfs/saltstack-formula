@@ -1,0 +1,20 @@
+{% set elasticsearch = salt['grains.filter_by']({
+    'Debian': {
+        'repo_url_5': 'https://artifacts.elastic.co/packages/5.x/apt',
+        'repo_url_2': 'http://packages.elastic.co/elasticsearch/2.x/debian',
+        'pkg': 'elasticsearch',
+        'sysconfig_file': '/etc/default/elasticsearch',
+        'plugin_bin_5': 'elasticsearch-plugin',
+        'plugin_bin_2': 'plugin',
+    },
+    'RedHat': {
+        'repo_url_5': 'https://artifacts.elastic.co/packages/5.x/yum',
+        'repo_url_2': 'http://packages.elastic.co/elasticsearch/2.x/centos',
+        'pkg': 'elasticsearch',
+        'sysconfig_file': '/etc/sysconfig/elasticsearch',
+        'plugin_bin_5': 'elasticsearch-plugin',
+        'plugin_bin_2': 'plugin',
+    },
+}, grain='os_family', merge=salt['pillar.get']('elasticsearch', {}), default='Debian') %}
+
+
