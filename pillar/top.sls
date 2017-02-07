@@ -7,3 +7,4 @@ base:
   'vm-01':
     - elasticsearch.elasticsearch
     - nginx.nginx
+    - kibana.kibana

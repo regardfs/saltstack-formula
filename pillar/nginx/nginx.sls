@@ -1,5 +1,5 @@
 nginx:
-  install_from_source: True
+  install_from_source: "False"
   modules_dir: /usr/local/src/modules
   nginx_version: 1.11.9
   dependencies_dir: /usr/local/src/dependencies
@@ -17,3 +17,11 @@ nginx:
       - libperl-dev
       - gcc
       - g++
+      - apache2-utils
+  libgd3_version: '2.1.0-3'
+  nginx-realip-from:
+    - 127.0.0.1
+    - 172.17.8.101
+    - 172.17.8.102
+    - 10.0.2.15
+    - 10.0.2.16

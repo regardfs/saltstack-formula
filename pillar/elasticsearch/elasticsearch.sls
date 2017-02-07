@@ -1,6 +1,8 @@
 elasticsearch:
   major_version: 2
   java_home: /usr/bin/java
+  user: elasticsearch
+  group: elasticsearch
   configs:
     vm-01:
       cluster.name: my-app

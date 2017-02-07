@@ -37,6 +37,8 @@ nginx_user:
 {{ pkg }}_install:
   pkg.installed:
     - name: {{ pkg }}
+    - hold: true
+    - refresh: True
 {% endfor %}
 {% endif %}
 

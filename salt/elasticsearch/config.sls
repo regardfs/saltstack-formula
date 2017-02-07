@@ -26,8 +26,8 @@ elasticsearch_cfg:
 {% if dir %}
 {{ dir }}:
   file.directory:
-    - user: elasticsearch
-    - group: elasticsearch
+    - user: {{ elasticsearch.user }}
+    - group: {{ elasticsearch.group }}
     - mode: 0700
     - makedirs: True
 {% endif %}
