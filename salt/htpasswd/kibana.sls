@@ -4,9 +4,9 @@
 {% set kibana = pillar['kibana'] %}
 
 
-{{ kibana.htpasswd_files }}:
+{{ kibana.htpasswd_file }}:
   file.managed:
-    - name: {{ kibana.htpasswd_files }}
+    - name: {{ kibana.htpasswd_file }}
     - source: salt://htpasswd/files/htpasswd.elbusers
     - template: jinja
     - user: {{ nginx.default_user }}

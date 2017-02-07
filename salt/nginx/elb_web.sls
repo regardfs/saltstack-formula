@@ -18,4 +18,8 @@ include:
       - service: kibana_service
 
 nginx.reload:
-  - service.
+  service.running:
+    - enable: True
+    - reload: True
+    - watch:
+      - file: /etc/nginx/sites-available/elb_web.conf
