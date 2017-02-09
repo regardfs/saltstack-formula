@@ -7,7 +7,7 @@ elasticsearch:
     vm-01:
       cluster.name: my-app
       node.name: "vm-01"
-      node.master: 'false'
+      node.master: 'true'
       node.data: 'true'
       index.number_of_shards: 1
       index.number_of_replicas: 0
@@ -25,7 +25,7 @@ elasticsearch:
   sysconfig:
     ES_STARTUP_SLEEP_TIME: 5
     ES_HEAP_SIZE: 2g
-    MAX_OPEN_FILES: 65535
+    MAX_OPEN_FILES: 65536
   plugins:
     lang-python: lang-python
     kopf: lmenezes/elasticsearch-kopf

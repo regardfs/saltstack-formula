@@ -1,5 +1,5 @@
 {% from 'elasticsearch/map.jinja' import elasticsearch with context %}
-
+{% set ip = pillar['kibana']['serverip'] %}
 /opt/kibana/config/kibana.yml:
   file.managed:
   - name: /opt/kibana/config/kibana.yml
@@ -9,3 +9,5 @@
   - mode: 644
   - require:
     - pkg: kibana_pkg
+  - context:
+    ip: {{ ip }}

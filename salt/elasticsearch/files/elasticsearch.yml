@@ -23,13 +23,31 @@
 # For information on supported formats and syntax for the config file, see
 # <http://elasticsearch.org/guide/en/elasticsearch/reference/current/setup-configuration.html>
 
+cluster.name: {{ nodeinfo['cluster.name'] }}
+node.name: {{ nodeinfo['node.name'] }}
+network.host: {{ nodeinfo['network.host'] }}
+node.master: {{ nodeinfo['node.master'] }}
+node.data: {{ nodeinfo['node.data'] }}
+index.number_of_shards: {{ nodeinfo['index.number_of_shards'] }}
+index.number_of_replicas: {{ nodeinfo['index.number_of_replicas'] }}
+path.data: {{ nodeinfo['path.data'] }}
+path.logs: {{ nodeinfo['path.logs'] }}
+bootstrap.mlockall: {{ nodeinfo['bootstrap.mlockall'] }}
+gateway.recover_after_nodes: {{ nodeinfo['gateway.recover_after_nodes'] }}
+gateway.recover_after_time: {{ nodeinfo['gateway.recover_after_time'] }}
+gateway.expected_nodes: {{ nodeinfo['gateway.expected_nodes'] }}
+action.disable_close_all_indices: {{ nodeinfo['action.disable_close_all_indices'] }}
+action.disable_delete_all_indices: {{ nodeinfo['action.disable_delete_all_indices'] }}
+action.disable_shutdown: {{ nodeinfo['action.disable_shutdown'] }}
+indices.recovery.max_bytes_per_sec: {{ nodeinfo['indices.recovery.max_bytes_per_sec'] }}
+
+
 
 ################################### Cluster ###################################
 
 # Cluster name identifies your cluster for auto-discovery. If you're running
 # multiple clusters on the same network, make sure you're using unique names.
 #
-cluster.name: {{ nodeinfo['cluster.name'] }}
 
 
 #################################### Node #####################################
@@ -37,18 +55,15 @@ cluster.name: {{ nodeinfo['cluster.name'] }}
 # Node names are generated dynamically on startup, so you're relieved
 # from configuring them manually. You can tie this node to a specific name:
 #
-node.name: {{ nodeinfo['node.name'] }}
 
 # Every node can be configured to allow or deny being eligible as the master,
 # and to allow or deny to store the data.
 #
 # Allow this node to be eligible as a master node (enabled by default):
 #
-node.master: {{ nodeinfo['node.master'] }}
 #
 # Allow this node to store data (enabled by default):
 #
-node.data: {{ nodeinfo['node.data'] }}
 
 # You can exploit these settings to design advanced cluster topologies.
 #
@@ -102,11 +117,9 @@ node.data: {{ nodeinfo['node.data'] }}
 
 # Set the number of shards (splits) of an index (5 by default):
 #
-index.number_of_shards: {{ nodeinfo['index.number_of_shards'] }}
 
 # Set the number of replicas (additional copies) of an index (1 by default):
 #
-index.number_of_replicas: {{ nodeinfo['index.number_of_replicas'] }}
 
 # Note, that for development on a local machine, with small indices, it usually
 # makes sense to "disable" the distributed features:
@@ -164,9 +177,6 @@ index.number_of_replicas: {{ nodeinfo['index.number_of_replicas'] }}
 #
 # path.plugins: /path/to/plugins
 
-path.data: {{ nodeinfo['path.data'] }}
-
-path.logs: {{ nodeinfo['path.logs'] }}
 
 #################################### Plugin ###################################
 
@@ -182,7 +192,6 @@ path.logs: {{ nodeinfo['path.logs'] }}
 #
 # Set this property to true to lock the memory:
 #
-bootstrap.mlockall: {{ nodeinfo['bootstrap.mlockall'] }}
 
 # Make sure that the ES_MIN_MEM and ES_MAX_MEM environment variables are set
 # to the same value, and that the machine has enough memory to allocate
@@ -203,7 +212,6 @@ bootstrap.mlockall: {{ nodeinfo['bootstrap.mlockall'] }}
 #
 # network.bind_host: 192.168.0.1
 
-network.host: {{ nodeinfo['network.host'] }}
 
 # Set the address other nodes will use to communicate with this node. If not
 # set, it is automatically derived. It must point to an actual IP address.
@@ -255,18 +263,15 @@ network.host: {{ nodeinfo['network.host'] }}
 
 # Allow recovery process after N nodes in a cluster are up:
 #
-gateway.recover_after_nodes: {{ nodeinfo['gateway.recover_after_nodes'] }}
 
 # Set the timeout to initiate the recovery process, once the N nodes
 # from previous setting are up (accepts time value):
 #
-gateway.recover_after_time: {{ nodeinfo['gateway.recover_after_time'] }}
 
 # Set how many nodes are expected in this cluster. Once these N nodes
 # are up (and recover_after_nodes is met), begin recovery process immediately
 # (without waiting for recover_after_time to expire):
 #
-gateway.expected_nodes: {{ nodeinfo['gateway.expected_nodes'] }}
 
 # Require explicit index creation
 # action.auto_create_index: false
@@ -274,9 +279,7 @@ gateway.expected_nodes: {{ nodeinfo['gateway.expected_nodes'] }}
 # Protect against accidental close/delete operations
 # on all indices. You can still close/delete individual
 # indices
-action.disable_close_all_indices: {{ nodeinfo['action.disable_close_all_indices'] }}
-action.disable_delete_all_indices: {{ nodeinfo['action.disable_delete_all_indices'] }}
-action.disable_shutdown: {{ nodeinfo['action.disable_shutdown'] }}
+
 
 ############################# Recovery Throttling #############################
 
@@ -296,7 +299,6 @@ action.disable_shutdown: {{ nodeinfo['action.disable_shutdown'] }}
 
 # Set to throttle throughput when recovering (eg. 100mb, by default 20mb):
 #
-indices.recovery.max_bytes_per_sec: {{ nodeinfo['indices.recovery.max_bytes_per_sec'] }}
 
 # Set to limit the number of open concurrent streams when
 # recovering a shard from a peer:

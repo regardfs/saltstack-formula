@@ -4,4 +4,6 @@ kibana:
   port: 8001
   host: localhost
   htpasswd_file: /etc/nginx/htpasswd.elbusers
+  config: /opt/kibana/config/kibana.yml
+  serverip: 172.17.8.101
 

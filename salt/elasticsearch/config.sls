@@ -54,7 +54,7 @@ ES_MAX_MEM_set:
 /etc/security/limits.conf:
   file.append:
     - text:
-      - es soft memlock unlimited
-      - es hard memlock unlimited
-      - es soft nofile 204800
-      - es hard nofile 204800
+      - elasticsearch soft memlock unlimited
+      - elasticsearch hard memlock unlimited
+      - elasticsearch soft nofile 204800
+      - elasticsearch hard nofile 204800
