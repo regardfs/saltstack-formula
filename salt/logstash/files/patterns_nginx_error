@@ -1,0 +1,1 @@
+NGINX_ERROR %{DATE} %{TIME} %{GREEDYDATA:error} limiting requests, excess: %{GREEDYDATA:limit} client: %{IPORHOST:visitor_ip}, server: %{HOST:nginx_host}, request: "%{WORD:method} %{URIPATHPARAM:request} HTTP/%{NUMBER:httpversion}", %{GREEDYDATA:msg}

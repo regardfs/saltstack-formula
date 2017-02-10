@@ -1,5 +1,7 @@
 {% set elasticsearch = pillar['elasticsearch'] %}
 
+{% set patterns_dir = salt['cmd.run']('find / -name 'patterns'|grep -v lib') %}
+
 /etc/logstash/conf.d/10-syslog.conf:
   file.managed:
     - name: /etc/logstash/conf.d/10-syslog.conf
@@ -11,3 +13,4 @@
       - pkg: logstash
     - watch_in:
       - service: logstash
+

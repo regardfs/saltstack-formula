@@ -224,7 +224,7 @@ basicConstraints = CA:FALSE
 keyUsage = nonRepudiation, digitalSignature, keyEncipherment
 
 [ v3_ca ]
-
+subjectAltName = IP: 172.17.8.101
 
 # Extensions for a typical CA
 
