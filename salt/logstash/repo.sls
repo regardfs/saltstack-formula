@@ -23,3 +23,14 @@ logstash:
     - skip_verfy: True
     - refresh: True
     - hold: True
+  cmd.run:
+    - name: sudo update-rc.d logstash defaults 97 8
+    - require:
+      - pkg: logstash
+  service.running:
+    - name: logstash
+    - enable: True
+    - watch:
+      - file: /etc/logstash/conf.d/10-syslog.conf
+    - require:
+      - pkg: logstash

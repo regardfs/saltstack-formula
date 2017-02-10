@@ -12,3 +12,8 @@ elasticsearch_service:
 {%- endif %}
     - require:
       - pkg: elasticsearch_pkg
+  cmd.run:
+    - name: sudo update-rc.d elasticsearch defaults 95 10
+    - require:
+      - pkg: elasticsearch_pkg
+
