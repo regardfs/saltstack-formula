@@ -13,4 +13,5 @@
       - pkg: logstash
     - watch_in:
       - service: logstash
-
+  cmd.run:
+    - name: /opt/logstash/bin/logstash -f /etc/logstash/conf.d/10-syslog.conf
