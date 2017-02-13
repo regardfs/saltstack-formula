@@ -1,0 +1,5 @@
+{"check":
+  { "name": "ping",
+    "script": "ping -c1 vm-01 >/dev/null",
+    "interval": "30s"}
+}

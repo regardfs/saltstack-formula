@@ -15,7 +15,7 @@ AGENTNAME=`hostname`
 SERVERTYPE=$1
 
 if [ $SERVERTYPE == 'server' ]; then
-    serverconf='-server -bootstrap-expect=1 -data-dir="$CONSULDATAC"'
+    serverconf="-server -bootstrap-expect=1 -data-dir=$CONSULDATAC -client=$CONSULSERVER"
 else
     serverconf="-join $CONSULSERVER"
 fi
