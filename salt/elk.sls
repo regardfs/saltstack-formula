@@ -4,5 +4,5 @@ include:
   - nginx
   - htpasswd.kibana
   - nginx.elb_web
-  - logstash
+  #- logstash
 
