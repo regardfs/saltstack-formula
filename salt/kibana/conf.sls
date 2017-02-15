@@ -6,6 +6,7 @@
   - source: salt://kibana/files/kibana.yml
   - user: {{ elasticsearch.user }}
   - group: {{ elasticsearch.group }}
+  - template: jinja
   - mode: 644
   - require:
     - pkg: kibana_pkg
