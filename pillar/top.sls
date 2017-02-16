@@ -9,3 +9,4 @@ base:
     - nginx.nginx
     - kibana.kibana
     - logstash.logstash
+    - python.python
