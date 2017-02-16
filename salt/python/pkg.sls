@@ -16,19 +16,12 @@ python_file_uncompress:
     - cwd: {{ python.installdir }}
     - require:
       - file: python_{{ python.version }}_file
+    - runas: {{ python.user }}
 
 install_python:
   cmd.run:
-    - name: ./configure --prefix={{ python.installdir }} && make && make install
+    - name: ./configure --prefix={{ python.installdir }}  && make && make install
     - cwd: {{ python.makedir }}
     - require:
       - cmd: python_file_uncompress
-
-pyvenv_symlink:
-  file.symlink:
-    - name: /usr/bin/pyvenv
-    - target: {{ python.installdir }}/bin/pyvenv
-    - require:
-      - cmd: install_python
-    - watch:
-      - cmd: install_python
+    - runas: {{ python.user }}
